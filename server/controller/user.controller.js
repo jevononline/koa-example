@@ -12,11 +12,11 @@ module.exports = {
         var query = this.request.query;
         var pageNumber = Number(query.pageNumber);
         var pageSize = Number(query.pageSize);
-        
+
         var totalCount = yield User.count({});
         var pageCount = Math.ceil(totalCount / pageSize);
-        var result = yield User.find({}, { password: 0 }).skip((pageNumber - 1) * pageSize).limit(pageSize).exec();
-        
+        var result = yield User.find({}, {}).skip((pageNumber - 1) * pageSize).limit(pageSize).exec();
+
         this.body = { data: { items: result, totalCount, pageCount } };
     },
     *add() {
@@ -24,13 +24,19 @@ module.exports = {
         var model = new User(user);
 
         var result = yield model.save();
-        
+
         this.body = result;
     },
     *findById() {
         var userId = this.params.userId;
         var result = yield User.findOne({ _id: new ObjectId(userId) }, {password: 0}).exec();
-        
+
+        this.body = { data: result };
+    },
+    *delete() {
+        var userId = this.params.userId;
+        var result = yield User.remove({ _id: new ObjectId(userId) }).exec();
+
         this.body = { data: result };
     },
     *edit(){

@@ -4,6 +4,7 @@ var router = new Router();
 router.get('/user', controller.page);
 router.put('/user', controller.add);
 router.get('/user/:userId', controller.findById);
+router.delete('/user/:userId', controller.delete);
 router.post('/user/:userId', controller.edit);
 
 
