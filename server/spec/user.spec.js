@@ -21,5 +21,17 @@ describe('koa-example', function() {
 			done();
 		});
 	});
+	it("user/find", function(done) {
+		var url = apiurl;
+		request({
+			method: "get",
+			url: url,
+			json: true,
+		}, function(error, res, body) {
+			console.info(body);
+
+			done();
+		});
+	});
 
 });
