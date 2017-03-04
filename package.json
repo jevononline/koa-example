@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "koa mongodb example",
   "main": "server.js",
+  "keywords": [
+    "koa",
+    "mongodb"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
   "dependencies": {
     "koa": "^1.1.2",
     "koa-bodyparser": "^2.0.1",
@@ -16,19 +24,10 @@
   "devDependencies": {
     "chai": "^3.5.0"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jevononline/koa-example.git"
   },
-  "keywords": [
-    "koa",
-    "mongodb",
-    "example"
-  ],
   "author": "",
   "license": "MIT",
   "bugs": {
